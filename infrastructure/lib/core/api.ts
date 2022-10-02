@@ -56,7 +56,9 @@ export class ApplicationAPI extends Construct {
 
     // Authorizer -------------------------------------------------------
 
-    const authorizer = new HttpUserPoolAuthorizer('Authorizer', props.userPool);
+    const authorizer = new HttpUserPoolAuthorizer('Authorizer', props.userPool, {
+      userPoolClients: [props.userPoolClient]
+    });
 
     // Comments Service -------------------------------------------------
 
